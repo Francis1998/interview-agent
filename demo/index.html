@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Agent — AI Interview Coach</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="glow"></div>
+  <header>
+    <div class="logo">🎯 Interview Agent</div>
+    <div class="badge">Multi-LLM · Deterministic · Auditable</div>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Ask any backend interview question</h1>
+      <p>Powered by a state-machine agent with rationale traces, knowledge retrieval, and GPT / Claude / Gemini / Kimi routing.</p>
+    </section>
+    <section class="panel">
+      <label>Question</label>
+      <textarea id="question" rows="3" placeholder="e.g. Explain TCP three-way handshake and why TIME_WAIT exists"></textarea>
+      <div class="row">
+        <div>
+          <label>Topic</label>
+          <select id="topic">
+            <option value="">Auto-detect</option>
+            <option value="python">Python</option>
+            <option value="golang">Go</option>
+            <option value="mysql">MySQL</option>
+            <option value="linux">Linux</option>
+            <option value="networking">Networking</option>
+            <option value="redis">Redis</option>
+            <option value="system-design">System Design</option>
+          </select>
+        </div>
+        <div>
+          <label>Provider</label>
+          <select id="provider">
+            <option value="">Auto</option>
+            <option value="openai">OpenAI (GPT)</option>
+            <option value="anthropic">Anthropic (Claude)</option>
+            <option value="google">Google (Gemini)</option>
+            <option value="kimi">Kimi (Moonshot)</option>
+            <option value="mock">Mock (offline)</option>
+          </select>
+        </div>
+        <div>
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="junior">Junior</option>
+            <option value="mid" selected>Mid</option>
+            <option value="senior">Senior</option>
+          </select>
+        </div>
+      </div>
+      <button id="ask-btn">Run Agent</button>
+    </section>
+    <section class="results">
+      <div class="col">
+        <h2>Answer</h2>
+        <pre id="answer">Waiting for a question…</pre>
+      </div>
+      <div class="col">
+        <h2>Rationale Traces</h2>
+        <div id="traces"></div>
+      </div>
+      <div class="col full">
+        <h2>Event Log</h2>
+        <div id="events"></div>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
